@@ -38,7 +38,7 @@ void main() {
 
   print('Hello ' + name + '!');
   // You can also print out variables in strings like this.
-  print('Hello $name!');
+  print('Hello ${name}!');
 }
 ```
 When you use the final keyword to declare a variable, it cannot be altered at runtime. The same can be said about `const` variables. The difference however is that `final` is a runtine constant, and `const` is a compile time constant.

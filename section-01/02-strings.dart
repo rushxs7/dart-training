@@ -10,5 +10,5 @@ void main() {
 
   print('Hello ' + name + '!');
   // You can also print out variables in strings like this.
-  print('Hello $name!');
+  print('Hello ${name}!');
 }
