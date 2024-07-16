@@ -1,8 +1,8 @@
 # Dart Training - Rushil
 ---
 ## Objectives
-- [ ] Basics
-  - [ ] Type Annotations
+- [x] Basics
+- [ ] Type Annotations
 - [ ] Functions
 - [ ] Lists and Sets
 - [ ] Control Flow
@@ -55,3 +55,4 @@ void main() {
   print('Hello ' + name + '! You are ' + age + 'years old.');
 }
 ```
+### Type Annotations
