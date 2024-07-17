@@ -117,3 +117,53 @@ String greet({required String name, int? age}) {
 ```
 
 ### Lists and Sets
+#### Lists
+A dart list is just like an array in other languages. A list can contain elements of different types. You can also strongly type a list, just use the `<int>` right after declaring the `List`.
+
+We can add or remove items from a list with the `.add()` and `.remove()` methods. Pass the value you want to add or remove into the method. Do note that the `.remove()` method removes the item that matches the argument given.
+
+There are a few different methods that you can use on lists:
+- `.add()` adds a new item to a list.
+- `.remove()` removes the first item in the list that matches the argument.
+- `.removeLast()` removes the last item in the list.
+- `.indexOf()` returns the index of an item in the list that equals the value of the argument.
+- `.length` returns the length of a list.
+
+```dart
+void main() {
+  List<int> scores = [50, 75, 100, 125];
+  var players = [1, "Mario", "Luigi", "Mario"];
+
+  print(scores);
+  print(players);
+
+  scores.add(150);
+  // players.remove("Mario");
+  players.removeLast();
+  // scores.shuffle();
+
+  print(scores);
+  print(players);
+  print(players.length);
+  print(scores.indexOf(75));
+}
+```
+
+#### Sets
+Sets are in some ways different than lists. There are a few exceptions though:
+1. Sets do **not** allow duplicate values.
+2. Sets are written with curly brackets `{}` instead of straight brackets `[]`.
+3. Set additions will not return an error is there is a duplicate item.
+
+```dart
+void main() {
+  Set<String> names = {"mario", "luigi", "peach"};
+
+  names.add("daisy");
+  names.add("peach");
+  names.remove("daisy");
+
+  print(names);
+}
+```
+
