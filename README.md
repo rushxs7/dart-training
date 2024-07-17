@@ -4,7 +4,7 @@
 - [x] Basics
 - [x] Type Annotations
 - [x] Functions
-- [ ] Lists and Sets
+- [x] Lists and Sets
 - [ ] Control Flow
 - [ ] Maps
 - [ ] Classes
