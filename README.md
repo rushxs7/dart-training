@@ -83,4 +83,35 @@ void main() {
 }
 ```
 ### Functions
+The way a function gets defined in dart is right under our noses. The `void` keyword we put infront of the main function is actually the type of data that the function returns. `void` is a special type annotation. It indicates that the function doesn't return any value.
 
+A function is built out of the following: `type of data returned` `name of the function` `(parameters)` `{body of the function}`. Below, we've defined what type of data the function return and also what type of data the function accepts as arguments. Know that the order of the arguments is important.
+
+```dart
+void main() {
+  print(greet("Rushil"));
+}
+
+String greet(String name,int age) {
+  return "Hi, my name is ${name} and I am ${age} years old.";
+}
+```
+
+We can also have optional parameters. We can build such a function like below. The way you call the function is now different. You have to specify which argument adheres to what function parameter. In this case then, the order of arguments does not matter, as they are explicitly passed in. This is important because we will use this a lot in Flutter Widgets.
+```dart
+void main() {
+  print(greet(name: "Rushil"));
+  print(greet(age: 26, name: "Rushil"));
+}
+
+String greet({required String name, int? age}) {
+  String greeting = "Hi, my name is ${name}";
+  if (age != null) {
+    greeting += " and I am ${age} years old.";
+  } else {
+    greeting += ".";
+  }
+
+  return greeting;
+}
+```
