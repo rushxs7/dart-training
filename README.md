@@ -2,8 +2,8 @@
 ---
 ## Objectives
 - [x] Basics
-- [ ] Type Annotations
-- [ ] Functions
+- [x] Type Annotations
+- [x] Functions
 - [ ] Lists and Sets
 - [ ] Control Flow
 - [ ] Maps
