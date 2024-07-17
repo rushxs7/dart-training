@@ -56,3 +56,31 @@ void main() {
 }
 ```
 ### Type Annotations
+Instead of using `var` to create a variable, we can explicitly define the type of the variable. Whole numbers can also be assigned as `double`. If we want the values to be constant throughout the runtime we can simply add `const` or `final` before the type annotation.
+```dart
+void main() {
+    final String name = 'Rushil';
+    print(name);
+
+    const int age = 26;
+    print(age);
+
+    bool isOpen = true;
+    print(isOpen);
+
+    // double averageRating = 7.9;
+    double averageRating = 7;
+    print(averageRating);
+}
+```
+#### Null Safety in Dart
+Sometimes we want to initialize a variable but not assign a value to it just yet. We can initialize the variable but dart will not allow the program to run unless a value is assigned. This is where we add a question mark 
+```dart
+void main() {
+    int? points;
+    // points must be assigned a value before it can be used. That's why we add the question mark.
+    print(points);
+}
+```
+### Functions
+
