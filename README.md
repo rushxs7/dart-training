@@ -172,3 +172,22 @@ void main() {
 There are a few methods to control the flow of the program. They're not very different from other languages.
 
 The for loop is useful to loop over lists. There are two types of for loops: **normal-** and **for in** loops.
+
+```dart
+void main() {
+  List<String> players = ["Mario", "Luigi", "Peach"];
+
+  for (var i = 0; i < players.length; i++) {
+    print("Player #${i+1}: " + players[i]);
+  }
+
+  for (var player in players) {
+    if (player == "Mario") {
+      print("It's a me...");
+    } else {
+      print("Woohoo, it's...");
+    }
+    print(player);
+  }
+}
+```
