@@ -7,7 +7,7 @@
 - [x] Lists and Sets
 - [x] Control Flow
 - [x] Maps
-- [ ] Classes
+- [x] Classes
 - [ ] Method Overriding
 - [ ] Generics
 - [ ] Async, Await and Futures
