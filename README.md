@@ -6,7 +6,7 @@
 - [x] Functions
 - [x] Lists and Sets
 - [x] Control Flow
-- [ ] Maps
+- [x] Maps
 - [ ] Classes
 - [ ] Method Overriding
 - [ ] Generics
