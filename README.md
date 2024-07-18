@@ -191,3 +191,55 @@ void main() {
   }
 }
 ```
+
+### Maps
+A Map is a data structure. It is just like an object literal in Javascript. The way we create a map is similar to how we create a set.
+```dart
+void main() {
+  var planets = {}; // Defaults to empty map
+}
+```
+The written code above will create an empty map and not a set. If, like a set, we were to popolate the curly brackets with integers, the variable would default to the type of set, not map.
+```dart
+void main() {
+  var planets = {5, 10, 15, 20}; // Defaults to set
+}
+```
+Maps are very peculiar. When strongly typed, you need to assign a type to both the key as well as the value.
+```dart
+void main() {
+  Map<String, String> planet = {
+    "name": "earth",
+    "color": "mixed"
+  };
+}
+```
+The values of maps can be changed pretty easily. However, the values or keys cannot be altered to any value of a different data type.
+```dart
+  planet["color"] = "blue/green";
+  print(planet["color"]);
+```
+The maps also come with their own methods:
+- `.containsKey("name")` returns a boolean based on if the key is present.
+- `.containsValue("earth")` reeturn a boolean based on if the value if present.
+- `.remove("name")` accepts the key as an argument and removes it out of the map.
+- `.keys` returns a list of all the different keys.
+- `.values` return a list of all the different values.
+- `.map()` goes through all the values.
+
+```dart
+void main() {
+  var planets = {};
+
+  final Map<String, String> planet = {
+    "name": "earth",
+    "color": "mixed"
+  };
+
+  print(planet);
+  print(planet["color"]);
+  planet["color"] = "blue/green";
+  print(planet["color"]);
+  print(planet.containsKey("name"));
+}
+```
