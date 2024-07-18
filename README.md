@@ -5,7 +5,7 @@
 - [x] Type Annotations
 - [x] Functions
 - [x] Lists and Sets
-- [ ] Control Flow
+- [x] Control Flow
 - [ ] Maps
 - [ ] Classes
 - [ ] Method Overriding
@@ -128,6 +128,7 @@ There are a few different methods that you can use on lists:
 - `.removeLast()` removes the last item in the list.
 - `.indexOf()` returns the index of an item in the list that equals the value of the argument.
 - `.length` returns the length of a list.
+- `.where((el) => el > condition)` return a filtered list of elements that meet the condition (true).
 
 ```dart
 void main() {
@@ -146,6 +147,7 @@ void main() {
   print(players);
   print(players.length);
   print(scores.indexOf(75));
+  print(scores.where((score) => score > 75));
 }
 ```
 
@@ -166,3 +168,7 @@ void main() {
   print(names);
 }
 ```
+### Control and Flow
+There are a few methods to control the flow of the program. They're not very different from other languages.
+
+The for loop is useful to loop over lists. There are two types of for loops: **normal-** and **for in** loops.

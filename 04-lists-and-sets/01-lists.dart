@@ -14,4 +14,5 @@ void main() {
   print(players);
   print(players.length);
   print(scores.indexOf(75));
+  print(scores.where((score) => score > 75));
 }
