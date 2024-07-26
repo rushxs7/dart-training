@@ -8,7 +8,7 @@
 - [x] Control Flow
 - [x] Maps
 - [x] Classes
-- [ ] Method Overriding
+- [x] Method Overriding
 - [ ] Generics
 - [ ] Async, Await and Futures
 - [ ] Fetching Data
@@ -245,3 +245,153 @@ void main() {
 ```
 
 ### Classes
+Classes in Dart work similar to classes in any language. To initialize a class, create a function with the same name as the class inside of the class. That will become the constructor method. 
+
+We can have classes extend other classes and have the child class inherit the methods of the parent class. If the child class has different attributes compared to the parent class, it also needs to be initialized differently. The constructor method of the child class will have to be different but at the same time also take the same parameters as the parent class. The code below describes how this is done properly.
+
+```dart
+void main() {
+  var noodles = MenuItem("Veg. Noodles", 2.99);
+  var pizza = Pizza(["Chicken", "Pineapple", "Extra Cheese"], "Hawaiian Pizza", 6.99);
+
+  print(noodles.neatString());
+  print(pizza.neatString());
+}
+
+class MenuItem {
+  String title;
+  double price;
+
+  MenuItem(this.title, this.price);
+
+  String neatString() {
+    return "One portion of " + this.title + " costs \$" + this.price.toString();
+  }
+}
+
+class Pizza extends MenuItem {
+  List<String> toppings;
+
+  Pizza(this.toppings, super.title, super.price);
+}
+```
+
+### Method Overrides
+Sometimes we want the child class to have the same function as the parent class but not to deliver the same output.
+
+We can redeclare the same function in the child class but annotate it with an override notation.
+
+```dart
+void main() {
+  var noodles = MenuItem("Veg. Noodles", 2.99);
+  var pizza = Pizza(["Chicken", "Pineapple", "Extra Cheese"], "Hawaiian Pizza", 6.99);
+
+  print(noodles.neatString());
+  print(pizza.neatString());
+}
+
+class MenuItem {
+  String title;
+  double price;
+
+  MenuItem(this.title, this.price);
+
+  String neatString() {
+    return "One portion of " + this.title + " costs \$" + this.price.toString();
+  }
+}
+
+class Pizza extends MenuItem {
+  List<String> toppings;
+
+  Pizza(this.toppings, super.title, super.price);
+
+  String toppingString() {
+    String toppingString = "";
+    for (int i = 0; i < this.toppings.length; i++) {
+      toppingString += this.toppings[i];
+      if (i != (this.toppings.length - 1)) {
+        toppingString += ", ";
+      } else {
+        toppingString += ".";
+      }
+    }
+    return toppingString;
+  }
+
+  // Sometimes we may want to execute a different function over the parent class one because we are dealing with different attributes
+  // This is why we include the @override annotation
+  @override
+  String neatString() {
+    return "One portion of " + this.title + " costs \$" + this.price.toString() + ". (Toppings: " + this.toppingString() + ")";
+  }
+}
+```
+
+We can override our own methods but we can also override methods provided by the dart language. Normally when we try to print a variable of an class instance we get `Instance of 'Class'`.
+```dart
+void main() {
+  var noodles = MenuItem("Veg. Noodles", 2.99);
+  var pizza = Pizza(["Chicken", "Pineapple", "Extra Cheese"], "Hawaiian Pizza", 6.99);
+
+  print(noodles); // Output: Instance of 'MenuItem'
+  print(pizza); // Output: Instance of 'Pizza'
+}
+```
+
+This is expected but if we wanted a string straight from the class we would automatically assume to use the `toString()` method. We can override that method to return the output of our previously overridden method.
+
+```dart
+void main() {
+  var noodles = MenuItem("Veg. Noodles", 2.99);
+  var pizza = Pizza(["Chicken", "Pineapple", "Extra Cheese"], "Hawaiian Pizza", 6.99);
+
+  print(noodles.toString());
+  print(pizza.toString());
+}
+
+class MenuItem {
+  String title;
+  double price;
+
+  MenuItem(this.title, this.price);
+
+  String neatString() {
+    return "One portion of " + this.title + " costs \$" + this.price.toString();
+  }
+
+  @override
+  String toString() {
+    return neatString();
+  }
+}
+
+class Pizza extends MenuItem {
+  List<String> toppings;
+
+  Pizza(this.toppings, super.title, super.price);
+
+  String toppingString() {
+    String toppingString = "";
+    for (int i = 0; i < this.toppings.length; i++) {
+      toppingString += this.toppings[i];
+      if (i != (this.toppings.length - 1)) {
+        toppingString += ", ";
+      } else {
+        toppingString += ".";
+      }
+    }
+    return toppingString;
+  }
+
+  // Sometimes we may want to execute a different function over the parent class one because we are dealing with different attributes
+  // This is why we include the @override annotation
+  @override
+  String neatString() {
+    return "One portion of " + this.title + " costs \$" + this.price.toString() + ". (Toppings: " + this.toppingString() + ")";
+  }
+}
+```
+
+When executing the `toString()` method, the called `neatString()` method is different for every class. When executing from the parent class, it'll call the local method. When executed from the child class, it'll call the override method. If you really wanted to, you can write an override `toString()` method in the child class to then execute the logic closest to the class. 
+
