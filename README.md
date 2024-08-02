@@ -395,3 +395,8 @@ class Pizza extends MenuItem {
 
 When executing the `toString()` method, the called `neatString()` method is different for every class. When executing from the parent class, it'll call the local method. When executed from the child class, it'll call the override method. If you really wanted to, you can write an override `toString()` method in the child class to then execute the logic closest to the class. 
 
+### Generics
+Most of the time when we create classes, dart doesn't know what type the functions within it return. That gives us an issue later on, when we want to use an appropriate function. When a certain function returns a class, dart will automatically try to type cast it into a string.
+
+What we can do is create generic types. When creating a class like a collection, it's important that we annotate the return type so that dart can give the appropriate autocomplete strings.
+
